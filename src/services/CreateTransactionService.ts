@@ -15,6 +15,7 @@ class CreateTransactionService {
   }
 
   public execute({ title, value, type }: RequestDTO): Transaction {
+    // Não permitir entradas diferentes de tipos
     if (!['income', 'outcome'].includes(type)) {
       throw new Error('Transaction type is invalid');
     }
